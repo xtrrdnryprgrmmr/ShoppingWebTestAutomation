@@ -44,13 +44,6 @@ public class ProductModel extends BaseModel {
         waitForPageLoaded();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", driver.findElement(lblTotal));
-//        System.out.println("ProductName  : " + ProductName);
-//        System.out.println("ProductQuantity  : " + ProductQuantity);
-//        System.out.println("ProductName  : " + ProductPrice);
-//        System.out.println("ProductName 2 : " + driver.findElement(lblVerifiedProductName).getText());
-//        System.out.println("ProductQuantity 2 : " + driver.findElement(lblVerifiedProductQuantity).getAttribute("value"));
-//        System.out.println("ProductName 2 : " + driver.findElement(lblVerifiedProductPrice).getText());
-
         Assert.assertTrue(driver.findElement(lblVerifiedProductName).getText().contains(ProductName));
         Assert.assertTrue(driver.findElement(lblVerifiedProductQuantity).getAttribute("value").contains(ProductQuantity));
         Assert.assertTrue(driver.findElement(lblVerifiedProductPrice).getText().contains(ProductPrice));
