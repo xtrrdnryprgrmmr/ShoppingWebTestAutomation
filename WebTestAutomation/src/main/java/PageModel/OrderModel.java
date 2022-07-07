@@ -77,9 +77,6 @@ public class OrderModel extends BaseModel {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,400)");
         Assert.assertTrue(driver.findElement(lblPaymentStepOption).getText().contains(Constants.paymentMethodMessage));
-      //  System.out.println("ProductName s   : " + driver.findElement(lblPaymentProductName).getText());
-       // System.out.println("ProductQuantity s  : " + driver.findElement(lblPaymentProductQuantity).getText());
-     //   System.out.println("ProductPrice s : " + driver.findElement(lblPaymentProductPrice).getText());
         ProductName = driver.findElement(lblPaymentProductName).getText();
         ProductQuantity = driver.findElement(lblPaymentProductQuantity).getText();
         ProductPrice = driver.findElement(lblPaymentProductPrice).getText();
@@ -109,9 +106,6 @@ public class OrderModel extends BaseModel {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,400)");
         waitForPageLoaded();
-       // System.out.println("ProductName z   : " + driver.findElement(lblProductNameOrderHistoryAndDetails).getText());
-       // System.out.println("ProductQuantity z  : " + driver.findElement(lblProductQuantityOrderHistoryAndDetails).getAttribute("value"));
-        //System.out.println("ProductPrice z : " + driver.findElement(lblProductPriceOrderHistoryAndDetails).getText());
         Assert.assertTrue(driver.findElement(lblProductNameOrderHistoryAndDetails).getText().contains(ProductName));
         Assert.assertTrue(driver.findElement(lblProductQuantityOrderHistoryAndDetails).getAttribute("value").contains(ProductQuantity));
         Assert.assertTrue(driver.findElement(lblProductPriceOrderHistoryAndDetails).getText().contains(ProductPrice));
