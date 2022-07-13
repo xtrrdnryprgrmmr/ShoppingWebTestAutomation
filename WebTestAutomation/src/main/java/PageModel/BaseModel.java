@@ -50,7 +50,6 @@ public class BaseModel {
         Assert.assertTrue(driver.findElement(element).isEnabled());
     }
 
-
     public void fillArea(By locator, String text) {
         isElementDisplayed(locator);
         WebElement element = driver.findElement(locator);
@@ -71,4 +70,13 @@ public class BaseModel {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
     }
+    
+    public void assertElementTextAreEqual(By element, String text) {
+        Assert.assertTrue(driver.findElement(element).getText().contains(text));
+    }
+
+    public void assertAutoCompleteElementTextAreEqual(By element, String text) {
+        Assert.assertTrue(driver.findElement(element).getAttribute("value").contains(text));
+    }
+    
 }
