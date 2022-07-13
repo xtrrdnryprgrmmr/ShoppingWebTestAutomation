@@ -8,7 +8,6 @@ import org.testng.Assert;
 
 public class OrderModel extends BaseModel {
     public final By lblSummaryStepMessage = By.xpath("//*[@id='cart_title' and contains(text(),'Shopping-cart summary')]");
-
     public final By btnSummaryStepSubmit = By.xpath("//*[@title='Proceed to checkout']//*[text()='Proceed to checkout']");
     public final By lblDeliveryAddressOption = By.xpath("//*[text()='Choose a delivery address:']");
     public final By chkAddressesAreEquals = By.xpath("//*[@id='uniform-addressesAreEquals']");
