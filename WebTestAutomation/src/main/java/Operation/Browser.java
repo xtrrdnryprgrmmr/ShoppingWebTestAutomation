@@ -26,7 +26,6 @@ public class Browser {
         } else if (browser.equalsIgnoreCase("Edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
-            options.setPageLoadStrategy("--disable-notifications");
             driver = new EdgeDriver(options);
         }
         driver.manage().window().maximize();
