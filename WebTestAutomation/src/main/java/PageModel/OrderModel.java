@@ -2,7 +2,6 @@ package PageModel;
 
 import Operation.Constants;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -20,10 +19,8 @@ public class OrderModel extends BaseModel {
     public final By lblPaymentStepOption = By.xpath("//*[contains(text(),'Please choose your payment method')]");
     public final By mnuPaymentBankWire = By.xpath("//*[@class='payment_module']//*[@class='bankwire' and contains(text(),'Pay by bank wire')]");
     public final By paymentcheck = By.xpath("//*[@class='payment_module']//*[@class='cheque' and contains(text(),'Pay by check')]");
-
     public final By lblPaymentProductName = By.xpath("//p[@class='product-name']/a");//"//*[@class='product-name']//*[@class='cart_block_product_name']");
     public final By lblPaymentProductQuantity = By.xpath("//*[@class='cart_quantity text-center']//span");
-
     public final By lblPaymentProductPrice = By.xpath("//*[@class='cart_total']//*[@class='price']");
     public String ProductName = null;
     public String ProductPrice = null;
@@ -48,13 +45,10 @@ public class OrderModel extends BaseModel {
     public void verifySummaryStepMessage() {
         assertElementIsEnabled(lblSummaryStepMessage);
         Assert.assertTrue(driver.findElement(lblSummaryStepMessage).getText().contains(Constants.shoppingCartSummary));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,600)");
+        scrollPagePixelByPixel("600");
         assertElementIsEnabled(btnSummaryStepSubmit);
         clickElement(btnSummaryStepSubmit);
     }
-
-
 
     public void verifyAddressStep() {
         assertElementIsEnabled(lblDeliveryAddressOption);
@@ -65,17 +59,14 @@ public class OrderModel extends BaseModel {
 
     public void verifyShippingStep() {
         assertElementIsEnabled(lblTermsOfServiceForShipping);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,300)");
+        scrollPagePixelByPixel("300");
         waitForPageLoaded();
         driver.findElement(chkTermsOfService).click();
         clickElement(btnShippingStepSubmit);
-
     }
 
     public void verifyPaymentStep() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,400)");
+        scrollPagePixelByPixel("400");
         Assert.assertTrue(driver.findElement(lblPaymentStepOption).getText().contains(Constants.paymentMethodMessage));
         ProductName = driver.findElement(lblPaymentProductName).getText();
         ProductQuantity = driver.findElement(lblPaymentProductQuantity).getText();
@@ -89,8 +80,7 @@ public class OrderModel extends BaseModel {
     }
 
     public void verifyOrderConfirmationStep() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,300)");
+        scrollPagePixelByPixel("300");
         assertElementIsEnabled(lblOrderConfirmation);
         assertElementIsEnabled(lblYourOrderXIsComplete);
     }
@@ -103,8 +93,7 @@ public class OrderModel extends BaseModel {
     public void verifyOrderCompletedExpected() {
         clickElement(btnFirstOrder);
         waitForPageLoaded();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,400)");
+        scrollPagePixelByPixel("400");
         waitForPageLoaded();
         Assert.assertTrue(driver.findElement(lblProductNameOrderHistoryAndDetails).getText().contains(ProductName));
         Assert.assertTrue(driver.findElement(lblProductQuantityOrderHistoryAndDetails).getAttribute("value").contains(ProductQuantity));
