@@ -31,7 +31,6 @@ public class OrderModel extends BaseModel {
     public final By lblYourOrderXIsComplete = By.xpath("//*[contains(text(),'Your order on') and contains(text(),'is complete')]");
     public final By mnuViewMyCustomerAccount = By.xpath("//*[@title='View my customer account']");
     public final By mnuOrderHistoryAndDetails = By.xpath("//*[@title='Orders']//*[text()='Order history and details']");
-
     public final By btnFirstOrder = By.xpath("(//*[@class='color-myaccount'])[1]");
     public final By lblProductNameOrderHistoryAndDetails = By.xpath("//*[@id='order-detail-content']//*[@class='bold']//label");
     public final By lblProductQuantityOrderHistoryAndDetails = By.xpath("//*[@class='return_quantity']/input");
