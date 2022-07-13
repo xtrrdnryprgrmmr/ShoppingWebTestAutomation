@@ -1,7 +1,6 @@
 package PageModel;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -42,12 +41,10 @@ public class ProductModel extends BaseModel {
         assertElementIsEnabled(btnProceedToCheckout);
         clickElement(btnProceedToCheckout);
         waitForPageLoaded();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(lblTotal));
+        scrollPageElementExist(lblTotal);
         Assert.assertTrue(driver.findElement(lblVerifiedProductName).getText().contains(ProductName));
         Assert.assertTrue(driver.findElement(lblVerifiedProductQuantity).getAttribute("value").contains(ProductQuantity));
         Assert.assertTrue(driver.findElement(lblVerifiedProductPrice).getText().contains(ProductPrice));
     }
-
 
 }
