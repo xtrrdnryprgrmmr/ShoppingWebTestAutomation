@@ -42,9 +42,9 @@ public class ProductModel extends BaseModel {
         clickElement(btnProceedToCheckout);
         waitForPageLoaded();
         scrollPageElementExist(lblTotal);
-        Assert.assertTrue(driver.findElement(lblVerifiedProductName).getText().contains(ProductName));
-        Assert.assertTrue(driver.findElement(lblVerifiedProductQuantity).getAttribute("value").contains(ProductQuantity));
-        Assert.assertTrue(driver.findElement(lblVerifiedProductPrice).getText().contains(ProductPrice));
+        assertElementTextAreEqual(lblVerifiedProductName,ProductName);
+        assertAutoCompleteElementTextAreEqual(lblVerifiedProductQuantity,ProductQuantity);
+        assertElementTextAreEqual(lblVerifiedProductPrice,ProductPrice);
     }
 
 }
