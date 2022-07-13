@@ -97,7 +97,7 @@ public class LoginModel extends BaseModel {
     public void verifyAccountOperationSuccessfull() {
         assertElementIsEnabled(lblLogOut);
         assertElementIsEnabled(lblMyAccount);
-        Assert.assertEquals(driver.findElement(lblMyAccount).getText(), Constants.accountInformation);
+        assertElementTextAreEqual(lblMyAccount,Constants.accountInformation);
     }
 
     public ProductModel verifyProductPageOpened() {
