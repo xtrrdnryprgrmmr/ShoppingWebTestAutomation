@@ -28,7 +28,7 @@ public class ProductModel extends BaseModel {
         waitForPageLoaded();
     }
 
-    public void addProductToChart() throws InterruptedException {
+    public void addProductToChart() {
 
         clickElement(imgFirstProduct);
         ProductName = driver.findElement(lblProductName).getText();
