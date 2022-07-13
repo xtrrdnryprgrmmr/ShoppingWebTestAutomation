@@ -21,7 +21,7 @@ public class AddToBasket {
 
 
     @Given("Any browser opens")
-    public void launchApplication() throws Throwable {
+    public void launchApplication() {
         driver = Browser.getBrowser("Chrome");
         wait = new WebDriverWait(driver, 25);
         driver.manage().deleteAllCookies();
