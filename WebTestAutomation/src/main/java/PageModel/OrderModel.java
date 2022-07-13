@@ -43,7 +43,7 @@ public class OrderModel extends BaseModel {
 
     public void verifySummaryStepMessage() {
         assertElementIsEnabled(lblSummaryStepMessage);
-        Assert.assertTrue(driver.findElement(lblSummaryStepMessage).getText().contains(Constants.shoppingCartSummary));
+        assertElementTextAreEqual(lblSummaryStepMessage,Constants.shoppingCartSummary);
         scrollPagePixelByPixel("600");
         assertElementIsEnabled(btnSummaryStepSubmit);
         clickElement(btnSummaryStepSubmit);
@@ -66,7 +66,7 @@ public class OrderModel extends BaseModel {
 
     public void verifyPaymentStep() {
         scrollPagePixelByPixel("400");
-        Assert.assertTrue(driver.findElement(lblPaymentStepOption).getText().contains(Constants.paymentMethodMessage));
+        assertElementTextAreEqual(lblPaymentStepOption,Constants.paymentMethodMessage);
         ProductName = driver.findElement(lblPaymentProductName).getText();
         ProductQuantity = driver.findElement(lblPaymentProductQuantity).getText();
         ProductPrice = driver.findElement(lblPaymentProductPrice).getText();
@@ -94,8 +94,8 @@ public class OrderModel extends BaseModel {
         waitForPageLoaded();
         scrollPagePixelByPixel("400");
         waitForPageLoaded();
-        Assert.assertTrue(driver.findElement(lblProductNameOrderHistoryAndDetails).getText().contains(ProductName));
-        Assert.assertTrue(driver.findElement(lblProductQuantityOrderHistoryAndDetails).getAttribute("value").contains(ProductQuantity));
-        Assert.assertTrue(driver.findElement(lblProductPriceOrderHistoryAndDetails).getText().contains(ProductPrice));
+        assertElementTextAreEqual(lblProductNameOrderHistoryAndDetails,ProductName);
+        assertAutoCompleteElementTextAreEqual(lblProductQuantityOrderHistoryAndDetails,ProductQuantity);
+        assertElementTextAreEqual(lblProductPriceOrderHistoryAndDetails,ProductPrice);
     }
 }
