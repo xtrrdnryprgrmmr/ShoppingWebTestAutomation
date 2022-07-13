@@ -61,4 +61,14 @@ public class BaseModel {
         Select element = new Select(driver.findElement(locator));
         element.selectByVisibleText(text);
     }
+    
+    public void scrollPagePixelByPixel(String pixel) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0," + pixel + ")");
+    }
+
+    public void scrollPageElementExist(By locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
+    }
 }
