@@ -5,8 +5,8 @@ import PageModel.HomeModel;
 import PageModel.LoginModel;
 import PageModel.OrderModel;
 import PageModel.ProductModel;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -171,6 +171,16 @@ public class AddToBasket {
     @And("user observe completed product order")
     public void verifyOrderCompletedExpected() {
         orderModel.verifyOrderCompletedExpected();
+    }
+
+    @And("Fill email using existing account and click create an account button")
+    public void enterMailForCreateAccount() {
+        loginModel.enterMailForCreateAccount();
+    }
+
+    @And("User observe alert on screen about using existing accounts email")
+    public void verifyExistingAccountMessage() {
+        loginModel.verifyExistingAccountMessage();
     }
 
     @AfterTest(alwaysRun = true)
