@@ -1,7 +1,7 @@
 package Runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -9,13 +9,14 @@ import org.junit.runner.RunWith;
 
         glue = {"Test"},
 
-        plugin = { "pretty",
-                "html:./reports/cucumber-reports/cucumber-html/index.html",
+        plugin = {"pretty",
+                "html:target/cucumber/report.html",
                 "rerun:target/failedrerun.txt"},
-        monochrome =true,
-        features = { "@target/failedrerun.txt" }
+        monochrome = true,
+        features = {"@target/failedrerun.txt"}
 
 )
 
 public class FailedTest {
 }
+
