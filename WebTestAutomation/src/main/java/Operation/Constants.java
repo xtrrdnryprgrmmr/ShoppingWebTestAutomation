@@ -2,7 +2,7 @@ package Operation;
 
 public class Constants {
     public static final String baseUrl = "http://automationpractice.com/";
-    public static final String emailInput = "xx59@gmail.com";
+    public static final String emailInput = "xx93@gmail.com";
     public static final String customerFirstName = "xxx";
     public static final String customerLastName = "xxx";
     public static final String customerEmail = "xx1@gmail.com";
@@ -18,6 +18,6 @@ public class Constants {
     public static final String accountInformation = "Welcome to your account. Here you can manage all of your personal information and orders.";
     public static final String shoppingCartSummary = "SHOPPING-CART SUMMARY";
     public static final String paymentMethodMessage = "PLEASE CHOOSE YOUR PAYMENT METHOD";
-
+    public static final String alertExistingAccountMessage = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
 
 }
