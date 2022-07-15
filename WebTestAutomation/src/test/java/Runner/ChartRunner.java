@@ -1,13 +1,13 @@
 package Runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/java/Feature"}, glue = {"Test"}, tags = {"@AllStep"}, plugin = {"pretty",
-                "html:./reports/cucumber-reports/cucumber-html/index.html",
-                "rerun:target/failedrerun.txt"})
+@CucumberOptions(features = {"src/test/java/Feature"}, glue = {"Test"}, tags = "@AllStep", plugin = {"pretty",
+        "html:target/cucumber/report.html",
+        "rerun:target/failedrerun.txt"})
 public class ChartRunner {
 
 }
