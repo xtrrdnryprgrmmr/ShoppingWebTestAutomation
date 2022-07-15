@@ -1,6 +1,6 @@
 @AllStep
 Feature: AllStep.
-  Scenario:
+  Scenario: Create Account And Order a Product
     * Any browser opens
     * AutomationPractice page is visited.
     * Click sign in button and verify login page is opened
@@ -30,3 +30,10 @@ Feature: AllStep.
     * user observe ORDER CONFIRMATION page is opened and see order deatils
     * user click login page and use click order history and details
     * user observe completed product order
+
+  Scenario: Existing Account Validation
+    * Any browser opens
+    * AutomationPractice page is visited.
+    * Click sign in button and verify login page is opened
+    * Fill email using existing account and click create an account button
+    * User observe alert on screen about using existing accounts email
