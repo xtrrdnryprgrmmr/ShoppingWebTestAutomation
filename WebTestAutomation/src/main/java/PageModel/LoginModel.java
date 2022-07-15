@@ -29,6 +29,8 @@ public class LoginModel extends BaseModel {
     public final By mnuSummerDresses = By.xpath("//*[@class='subcategory-image']//*[@title='Summer Dresses']");
     public final By lblHeaderSummerDress = By.xpath("//*[@class='cat_desc']//*[@class='category-name' and contains(text(),'Summer Dresses')]");
 
+    public final By txtAlertExistingAccountMessage = By.xpath("//*[@class='alert alert-danger']/ol/li");
+
     public LoginModel(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
         waitForPageLoaded();
@@ -49,6 +51,12 @@ public class LoginModel extends BaseModel {
         assertElementIsEnabled(btnSubmitAccount);
     }
 
+    public void enterMailForCreateAccount() {
+        WebElement emailInput = driver.findElement(txtEmailAddress);
+        emailInput.sendKeys(Constants.emailInput);
+        clickElement(btnCreateAccount);
+        waitForPageLoaded();
+    }
 
     public void fillFirstName() {
         fillArea(txtCustomerFirstName, Constants.customerFirstName);
@@ -97,11 +105,17 @@ public class LoginModel extends BaseModel {
     public void verifyAccountOperationSuccessfull() {
         assertElementIsEnabled(lblLogOut);
         assertElementIsEnabled(lblMyAccount);
-        assertElementTextAreEqual(lblMyAccount,Constants.accountInformation);
+        assertElementTextAreEqual(lblMyAccount, Constants.accountInformation);
     }
 
     public ProductModel verifyProductPageOpened() {
         assertElementIsEnabled(lblHeaderSummerDress);
         return new ProductModel(driver, wait);
+    }
+
+    public void verifyExistingAccountMessage() {
+        isElementDisplayed(txtAlertExistingAccountMessage);
+        System.out.println("xx :" + driver.findElement(txtAlertExistingAccountMessage).getText());
+        assertElementTextAreEqual(txtAlertExistingAccountMessage, Constants.alertExistingAccountMessage);
     }
 }
